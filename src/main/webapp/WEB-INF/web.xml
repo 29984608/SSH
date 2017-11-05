@@ -8,7 +8,7 @@
   <!--配置监听器，添加applicationContext.xml，使服务器启动时，执行applicationContext.xml-->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:applicationContext.xml</param-value>
+    <param-value>classpath:applicationContext.xml classpath:applicationContext.xml</param-value>
   </context-param>
 
   <filter>

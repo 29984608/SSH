@@ -13,7 +13,7 @@ public class UserAction extends ActionSupport{
     @Override
     public String execute() throws Exception {
         System.out.println("action.......");
-        userService.add();
+        userService.test();
         return NONE;
     }
 }
