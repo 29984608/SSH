@@ -1,8 +1,5 @@
 package entity;
 
-/**
- * Created by yang on 17-11-4.
- */
 public class User {
     private int id;
     private String username;
