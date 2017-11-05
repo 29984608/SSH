@@ -34,36 +34,12 @@
         <property name="configLocations" value="classpath:hibernate.cfg.xml"></property>
     </bean>
 
-   <!-- 创建action对象，并设置scope-->
-    <bean id="userAction" class="action.UserAction" scope="prototype">
-        <!--注入service对象-->
-        <property name="userService" ref="userService"></property>
-    </bean>
-
-    <!--创建service对象
-        接口 = 实现类对象
-    -->
-    <bean id="userService" class="service.UserService">
-        <!--注入dao对象-->
-        <property name="userDao" ref="userDaoImpl"></property>
-    </bean>
-
-    <!--创建dao对象-->
-    <bean id="userDaoImpl" class="dao.impl.UserDaoImpl">
-        <!--注入hibernateTemplate对象-->
-        <property name="hibernateTemplate" ref="hibernateTemplate"></property>
-    </bean>
-
-    <!--创建hibernateTemplate对象-->
-    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
-        <!--注入sessionFactory对象-->
-        <property name="sessionFactory" ref="sessionFactory"></property>
-    </bean>
-
-     <!--第一步 配置事物管理器-->
+    <!--第一步 配置事物管理器-->
     <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
     <!--第二步 开启事务注解-->
     <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+    <!---->
+    <import resource="classpath:spring/spring-useraction.xml"></import>
 </beans>
